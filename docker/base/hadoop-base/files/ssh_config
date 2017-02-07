@@ -4,6 +4,6 @@ Host localhost
 Host 0.0.0.0
   StrictHostKeyChecking no
   
-Host *.krejcmat.com
+Host *.hadoop.test.com
    StrictHostKeyChecking no
    UserKnownHostsFile=/dev/null
