@@ -1,4 +1,4 @@
-FROM krejcmat/hadoop-base:latest
+FROM test/hadoop-base:latest
 MAINTAINER krejcmat <matejkrejci@gmail.com>
 
 # move all configuration files into container

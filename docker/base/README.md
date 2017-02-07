@@ -1,10 +1,9 @@
 # hadoop-hbase-docker
 
 ```bash
-cd cluster/hadoop-docker
 ./build-image-root.sh hadoop-dnsmasq
-cd cluster/hadoop-hbase-docker
-./build-image-root.sh hadoop-hbase-base
+./build-image-root.sh hadoop-base
+./build-image-root.sh hbase-base
 ```
 
 # Starting Container

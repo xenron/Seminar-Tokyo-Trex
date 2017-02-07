@@ -1,4 +1,4 @@
-FROM krejcmat/hadoop-hbase-base:latest
+FROM test/hbase-base:latest
 MAINTAINER krejcmat <matejkrejci@gmail.com>
 
 # move all confugration /tmp into container
