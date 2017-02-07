@@ -21,6 +21,10 @@
       <value>master.test.com:8040</value>
    </property>
    <property>
+      <name>yarn.resourcemanager.webapp.address</name>
+      <value>master.test.com:8088</value>
+   </property>
+   <property>
       <name>yarn.nodemanager.address</name>
       <value>master:8050</value>
    </property>
