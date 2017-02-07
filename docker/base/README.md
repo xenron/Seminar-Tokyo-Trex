@@ -6,17 +6,37 @@
 ./build-image-root.sh hbase-base
 ```
 
-# Starting Container
+# Starting Hadoop Container
+
 ```bash
-./start-container-root.sh latest 3
+$ ./start-container-root.sh hadoop latest 3
+# start master container...
+# start slave1 container...
+```
+
+```bash
+$ serf members
+# master.hadoop.test.com  172.17.0.2:7946  alive  
+# slave1.hadoop.test.com  172.17.0.3:7946  alive
+$ cd ~
+$ ./configure-members.sh
+$ ./start-hadoop.sh
+$ jps
+$ hdfs dfsadmin -report
+```
+
+# Starting HBase Container
+
+```bash
+./start-container-root.sh hbase latest 3
 # start master container...
 # start slave1 container...
 
 # do it in continer
 serf members
-# master.test.com  172.17.0.5:7946  alive  
-# slave1.test.com  172.17.0.6:7946  alive  
-# slave2.test.com  172.17.0.7:7946  alive
+# master.hbase.test.com  172.17.0.5:7946  alive  
+# slave1.hbase.test.com  172.17.0.6:7946  alive  
+# slave2.hbase.test.com  172.17.0.7:7946  alive
 cd ~
 ./configure-members.sh
 # Starting Hadoop
