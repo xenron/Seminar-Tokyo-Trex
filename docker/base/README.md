@@ -1,4 +1,4 @@
-# hadoop-hbase-docker
+# build image
 
 ```bash
 ./build-image-root.sh hadoop-dnsmasq
@@ -14,9 +14,9 @@
 
 # do it in continer
 serf members
-# master.krejcmat.com  172.17.0.5:7946  alive  
-# slave1.krejcmat.com  172.17.0.6:7946  alive  
-# slave2.krejcmat.com  172.17.0.7:7946  alive
+# master.test.com  172.17.0.5:7946  alive  
+# slave1.test.com  172.17.0.6:7946  alive  
+# slave2.test.com  172.17.0.7:7946  alive
 cd ~
 ./configure-members.sh
 # Starting Hadoop
