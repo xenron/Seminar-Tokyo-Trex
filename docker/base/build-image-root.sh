@@ -13,8 +13,8 @@ fi
 # founction for delete images
 function docker_rmi()
 {
-	echo -e "\n\ndocker rmi krejcmat/$1:$tag"
-	docker rmi krejcmat/$1:$tag
+	echo -e "\n\ndocker rmi test/$1:$tag"
+	docker rmi test/$1:$tag
 }
 
 
@@ -22,34 +22,60 @@ function docker_rmi()
 function docker_build()
 {
 	cd $1
-	echo -e "\n\ndocker build -t krejcmat/$1:$tag ."
-	# /usr/bin/time -f "real  %e" docker build -t krejcmat/$1:$tag .
-	docker build -t krejcmat/$1:$tag .
+	echo -e "\n\ndocker build -t test/$1:$tag ."
+	# /usr/bin/time -f "real  %e" docker build -t test/$1:$tag .
+	docker build -t test/$1:$tag .
 	cd ..
 }
 
-echo -e "\ndocker rm -f slave1.krejcmat.com slave2.krejcmat.com master.krejcmat.com"
-docker rm -f slave1.krejcmat.com slave2.krejcmat.com master.krejcmat.com
+echo -e "\ndocker rm -f slave1.hadoop.test.com slave2.hadoop.test.com master.hadoop.test.com"
+docker rm -f slave1.hadoop.test.com slave2.hadoop.test.com master.hadoop.test.com
 
 docker images >images.txt
 
 #all image is based on dnsmasq. master and slaves are based on base image.
-if [ $image == "hadoop-hbase-base" ]
+if [ $image == "hadoop-dnsmasq" ]
 then
-	docker_rmi hadoop-hbase-master
-	docker_rmi hadoop-hbase-slave
-	docker_rmi hadoop-hbase-base
-	docker_build hadoop-hbase-base
-	docker_build hadoop-hbase-master
-	docker_build hadoop-hbase-slave
+	docker_rmi hadoop-master
+	docker_rmi hadoop-slave
+	docker_rmi hadoop-base
+	docker_rmi hadoop-dnsmasq
+	docker_build hadoop-dnsmasq
+	docker_build hadoop-base
+	docker_build hadoop-master
+	docker_build hadoop-slave 
+elif [ $image == "hadoop-base" ]
+then
+	docker_rmi hadoop-master
+	docker_rmi hadoop-slave
+	docker_rmi hadoop-base
+	docker_build hadoop-base
+	docker_build hadoop-master
+	docker_build hadoop-slave
+elif [ $image == "hadoop-master" ]
+then
+	docker_rmi hadoop-master
+	docker_build hadoop-master
+elif [ $image == "hadoop-slave" ]
+then
+	docker_rmi hadoop-slave
+	docker_build hadoop-slave
+elif [ $image == "hadoop-hbase-base" ]
+then
+        docker_rmi hadoop-hbase-master
+        docker_rmi hadoop-hbase-slave
+        docker_rmi hadoop-hbase-base
+        docker_build hadoop-hbase-base
+        docker_build hadoop-hbase-master
+        docker_build hadoop-hbase-slave
 elif [ $image == "hadoop-hbase-master" ]
 then
-	docker_rmi hadoop-hbase-master
-	docker_build hadoop-hbase-master
+        docker_rmi hadoop-hbase-master
+        docker_build hadoop-hbase-master
 elif [ $image == "hadoop-hbase-slave" ]
 then
-	docker_rmi hadoop-hbase-slave
-	docker_build hadoop-hbase-slave
+        docker_rmi hadoop-hbase-slave
+        docker_build hadoop-hbase-slave
 else
 	echo "The image name is wrong!"
 fi
@@ -62,3 +88,5 @@ rm images.txt
 
 echo -e "\nimages after build"
 docker images
+
+
