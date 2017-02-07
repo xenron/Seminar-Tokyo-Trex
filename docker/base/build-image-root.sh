@@ -34,10 +34,10 @@ function docker_build()
 docker images > images.txt
 
 #all image is based on dnsmasq. master and slaves are based on base image.
-if [ $image == "hadoop-dnsmasq" ]
+if [ $image == "base-dnsmasq" ]
 then
-    docker_rmi hadoop-dnsmasq
-    docker_build hadoop-dnsmasq
+    docker_rmi base-dnsmasq
+    docker_build base-dnsmasq
 elif [ $image == "hadoop-base" ]
 then
     docker_rmi hadoop-master
