@@ -28,8 +28,8 @@ function docker_build()
 	cd ..
 }
 
-# echo -e "\ndocker rm -f slave1.hadoop.test.com slave2.hadoop.test.com master.hadoop.test.com"
-# docker rm -f slave1.hadoop.test.com slave2.hadoop.test.com master.hadoop.test.com
+# echo -e "\ndocker rm -f slave1.test.com slave2.test.com master.test.com"
+# docker rm -f slave1.test.com slave2.test.com master.test.com
 
 docker images > images.txt
 

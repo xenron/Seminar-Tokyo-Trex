@@ -16,8 +16,8 @@ $ ./start-container-root.sh hadoop latest 3
 
 ```bash
 $ serf members
-# master.hadoop.test.com  172.17.0.2:7946  alive  
-# slave1.hadoop.test.com  172.17.0.3:7946  alive
+# master.test.com  172.17.0.2:7946  alive  
+# slave1.test.com  172.17.0.3:7946  alive
 $ cd ~
 $ ./configure-members.sh
 $ ./start-hadoop.sh
@@ -34,9 +34,9 @@ $ hdfs dfsadmin -report
 
 # do it in continer
 serf members
-# master.hbase.test.com  172.17.0.5:7946  alive  
-# slave1.hbase.test.com  172.17.0.6:7946  alive  
-# slave2.hbase.test.com  172.17.0.7:7946  alive
+# master.test.com  172.17.0.5:7946  alive  
+# slave1.test.com  172.17.0.6:7946  alive  
+# slave2.test.com  172.17.0.7:7946  alive
 cd ~
 ./configure-members.sh
 # Starting Hadoop

@@ -13,8 +13,8 @@ fi
 # founction for delete images
 function docker_rmi()
 {
-	echo -e "\n\nsudo docker rmi krejcmat/$1:$tag"
-	sudo docker rmi krejcmat/$1:$tag
+	echo -e "\n\nsudo docker rmi test/$1:$tag"
+	sudo docker rmi test/$1:$tag
 }
 
 

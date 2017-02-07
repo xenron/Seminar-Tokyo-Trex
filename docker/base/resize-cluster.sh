@@ -14,20 +14,20 @@ fi
 cd hadoop-hbase-master
 
 # change the slaves file
-echo "master.krejcmat.com" > files/slaves
+echo "master.test.com" > files/slaves
 i=1
 while [ $i -lt $N ]
 do
-	echo "slave$i.krejcmat.com" >> files/slaves
+	echo "slave$i.test.com" >> files/slaves
 	((i++))
 done 
 
 # delete master container
-sudo docker rm -f master.krejcmat.com 
+sudo docker rm -f master.test.com 
 
 # delete hadoop-hbase-master image
-sudo docker rmi krejcmat/hadoop-hbase-master:$tag 
+sudo docker rmi test/hadoop-hbase-master:$tag 
 
 # rebuild hadoop-docker image
 pwd
-sudo docker build -t krejcmat/hadoop-hbase-master:$tag .
+sudo docker build -t test/hadoop-hbase-master:$tag .

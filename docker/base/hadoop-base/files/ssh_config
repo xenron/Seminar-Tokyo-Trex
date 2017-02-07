@@ -4,6 +4,6 @@ Host localhost
 Host 0.0.0.0
   StrictHostKeyChecking no
   
-Host *.hadoop.test.com
+Host *.test.com
    StrictHostKeyChecking no
    UserKnownHostsFile=/dev/null
