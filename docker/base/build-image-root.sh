@@ -31,7 +31,7 @@ function docker_build()
 echo -e "\ndocker rm -f slave1.hadoop.test.com slave2.hadoop.test.com master.hadoop.test.com"
 docker rm -f slave1.hadoop.test.com slave2.hadoop.test.com master.hadoop.test.com
 
-docker images >images.txt
+docker images > images.txt
 
 #all image is based on dnsmasq. master and slaves are based on base image.
 if [ $image == "hadoop-dnsmasq" ]
