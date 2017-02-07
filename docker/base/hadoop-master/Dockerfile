@@ -1,4 +1,4 @@
-FROM sebge2/hadoop-base:latest
+FROM test/hadoop-base:latest
 MAINTAINER sgerard <sgerard@emasphere.com>
 
 # move all confugration files into container

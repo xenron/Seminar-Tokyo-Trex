@@ -1,4 +1,4 @@
-FROM sebge2/hadoop-dnsmasq:latest
+FROM test/hadoop-dnsmasq:latest
 MAINTAINER sgerard <sgerard@emasphere.com>
 
 # install openssh-server
