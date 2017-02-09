@@ -13,8 +13,8 @@ fi
 # founction for delete images
 function docker_rmi()
 {
-	echo -e "\n\nsudo docker rmi test/$1:$tag"
-	sudo docker rmi test/$1:$tag
+	echo -e "\n\nsudo docker rmi krejcmat/$1:$tag"
+	sudo docker rmi krejcmat/$1:$tag
 }
 
 
@@ -23,38 +23,47 @@ function docker_build()
 {
 	cd $1
 	echo -e "\n\nsudo docker build -t krejcmat/$1:$tag ."
-	# /usr/bin/time -f "real  %e" sudo docker build -t krejcmat/$1:$tag .
-	sudo docker build -t krejcmat/$1:$tag .
+	/usr/bin/time -f "real  %e" sudo docker build -t krejcmat/$1:$tag .
 	cd ..
 }
 
-echo -e "\ndocker rm -f slave1.krejcmat.com slave2.krejcmat.com master.krejcmat.com"
-sudo docker rm -f slave1.krejcmat.com slave2.krejcmat.com master.krejcmat.com
+echo -e "\ndocker rm -f slave1 slave2 master"
+sudo docker rm -f slave1 slave2 master
 
 sudo docker images >images.txt
 
 #all image is based on dnsmasq. master and slaves are based on base image.
-if [ $image == "hadoop-hbase-base" ]
+if [ $image == "hadoop-dnsmasq" ]
 then
-	docker_rmi hadoop-hbase-master
-	docker_rmi hadoop-hbase-slave
-	docker_rmi hadoop-hbase-base
-	docker_build hadoop-hbase-base
-	docker_build hadoop-hbase-master
-	docker_build hadoop-hbase-slave
-elif [ $image == "hadoop-hbase-master" ]
+	docker_rmi hadoop-master
+	docker_rmi hadoop-slave
+	docker_rmi hadoop-base
+	docker_rmi hadoop-dnsmasq
+	docker_build hadoop-dnsmasq
+	docker_build hadoop-base
+	docker_build hadoop-master
+	docker_build hadoop-slave 
+elif [ $image == "hadoop-base" ]
 then
-	docker_rmi hadoop-hbase-master
-	docker_build hadoop-hbase-master
-elif [ $image == "hadoop-hbase-slave" ]
+	docker_rmi hadoop-master
+	docker_rmi hadoop-slave
+	docker_rmi hadoop-base
+	docker_build hadoop-base
+	docker_build hadoop-master
+	docker_build hadoop-slave
+elif [ $image == "hadoop-master" ]
 then
-	docker_rmi hadoop-hbase-slave
-	docker_build hadoop-hbase-slave
+	docker_rmi hadoop-master
+	docker_build hadoop-master
+elif [ $image == "hadoop-slave" ]
+then
+	docker_rmi hadoop-slave
+	docker_build hadoop-slave
 else
 	echo "The image name is wrong!"
 fi
 
-#docker_rmi hadoop-hbase-base
+#docker_rmi hadoop-base
 
 echo -e "\nimages before build"
 cat images.txt
