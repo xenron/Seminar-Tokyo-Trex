@@ -9,7 +9,7 @@ RUN echo 'deb http://ftp.cz.debian.org/debian stable main contrib'>> /etc/apt/so
   apt-get update -y && \
   echo "`cat /etc/issue.net` Docker Image - philcryer/min-wheezy - `date +'%Y/%m/%d'`" > /etc/motd
 
-RUN apt-get install -y vim tar unzip dnsmasq wget net-tools  && \
+RUN apt-get install -y vim tar unzip dnsmasq wget net-tools dialog whiptail && \
   apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
   rm -rf /var/lib/{apt,dpkg,cache,log}/ && \
   rm -rf /tmp
