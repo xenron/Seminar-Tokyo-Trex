@@ -1,5 +1,5 @@
 FROM test/hbase-base:latest
-MAINTAINER krejcmat <matejkrejci@gmail.com>
+MAINTAINER xenron <xenron@hotmail.com>
 
 # move all configuration files into container
 ADD files/hadoop/* /tmp/

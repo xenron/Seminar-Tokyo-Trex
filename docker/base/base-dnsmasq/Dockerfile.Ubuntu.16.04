@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER sgerard <sgerard@emasphere.com>
+MAINTAINER xenron <xenron@hotmail.com>
 
 # ARG DEBIAN_FRONTEND=noninteractive
 

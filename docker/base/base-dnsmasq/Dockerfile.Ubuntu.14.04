@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER sgerard <sgerard@emasphere.com>
+MAINTAINER xenron <xenron@hotmail.com>
 
 # init wheezy docker
 RUN apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \

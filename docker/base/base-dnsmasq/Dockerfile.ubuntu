@@ -1,7 +1,7 @@
 # Debian/GNU Linux
 # FROM philcryer/min-wheezy:latest
 FROM ubuntu:14.04
-MAINTAINER krejcmat <matejkrejci@gmail.com>
+MAINTAINER xenron <xenron@hotmail.com>
 
 # init wheezy docker
 # RUN echo 'deb http://ftp.cz.debian.org/debian stable main contrib'>> /etc/apt/sources.list && \  

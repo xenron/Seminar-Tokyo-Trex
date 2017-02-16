@@ -1,11 +1,11 @@
 FROM test/base-dnsmasq:latest
-MAINTAINER sgerard <sgerard@emasphere.com>
+MAINTAINER xenron <xenron@hotmail.com>
 
 # install openssh-server
 RUN apt-get update && \
-apt-get install -y curl openssh-server nano  && \
-apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
-rm -rf /var/lib/{apt,dpkg,cache,log}/
+  apt-get install -y curl openssh-server nano  && \
+  apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
+  rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 # Java Version
 ENV JAVA_VERSION_MAJOR 8
@@ -39,7 +39,6 @@ RUN mkdir -p /opt &&\
          /opt/jdk/jre/lib/amd64/libjavafx*.so \
          /opt/jdk/jre/lib/amd64/libjfx*.so 
 
-
 # Set environment
 ENV JAVA_HOME /opt/jdk
 ENV PATH ${PATH}:${JAVA_HOME}/bin
@@ -59,7 +58,6 @@ mv /usr/local/ssh_config ~/.ssh/config && \
 sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 # install hadoop 2.7.3
-# RUN wget -q -o out.log -P /tmp http://www.trieuvan.com/apache/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz && \
 RUN wget -q -o out.log -P /tmp https://archive.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz && \
   tar xzf /tmp/hadoop-2.7.3.tar.gz -C /usr/local && \
   rm /tmp/hadoop-2.7.3.tar.gz && \

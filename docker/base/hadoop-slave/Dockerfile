@@ -1,5 +1,5 @@
 FROM test/hadoop-base:latest
-MAINTAINER sgerard <sgerard@emasphere.com>
+MAINTAINER xenron <xenron@hotmail.com>
 
 # move all confugration /tmp into container
 ADD files/hadoop/* /tmp/

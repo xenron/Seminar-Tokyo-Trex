@@ -11,5 +11,3 @@ echo -e "\nstart serf..."
 sleep 5
 
 serf members
-
-echo -e "\nhadoop-cluster-docker developed by krejcmat <krejcmat@gmail.com>"
