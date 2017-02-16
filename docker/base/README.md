@@ -3,13 +3,13 @@
 # MacOS
 
 ```bash
-$ ./build-image-root.sh base-dnsmasq
-$ ./build-image-root.sh hadoop-base
-$ ./build-image-root.sh hbase-base
+$ ./build-image.sh base-dnsmasq
+$ ./build-image.sh hadoop-base
+$ ./build-image.sh hbase-base
 ```
 
 ```bash
-$ ./start-container-root.sh latest 3
+$ ./start-container.sh latest 3
 # start master container...
 # start slave1 container...
 # start slave2 container...
