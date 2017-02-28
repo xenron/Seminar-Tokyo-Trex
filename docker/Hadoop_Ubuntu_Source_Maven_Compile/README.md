@@ -1,7 +1,7 @@
 
-docker build -t test/hadoop-source -f Dockerfile.Ubuntu.14.04 .
+docker build -t test/hadoop-source-maven -f Dockerfile.Ubuntu.14.04 .
 
-docker run -d -t --name hadoop-source test/hadoop-source &> /dev/null
+docker run -d -t --name hadoop-source-maven test/hadoop-source-maven &> /dev/null
 
-docker exec -it hadoop-source bash
+docker exec -it hadoop-source-maven bash
 
